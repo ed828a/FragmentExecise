@@ -6,10 +6,15 @@
         android:id="@+id/firstFragment"
         android:icon="@drawable/ic_action_one"
         android:title="First Image"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/secondFragment"
         android:icon="@drawable/ic_action_two"
         android:title="Second Image"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/threeFragment"
+        android:icon="@drawable/ic_action_three"
+        android:title="Third Image"
+        app:showAsAction="never" />
 </menu>

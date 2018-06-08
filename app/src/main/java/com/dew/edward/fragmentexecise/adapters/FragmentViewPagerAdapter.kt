@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.dew.edward.fragmentexecise.fragments.FirstFragment
 import com.dew.edward.fragmentexecise.fragments.SecondFragment
+import com.dew.edward.fragmentexecise.fragments.ThreeFragment
 
 /*
  * Created by Edward on 6/8/2018.
@@ -15,9 +16,10 @@ class FragmentViewPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) 
         return when (position){
             0 -> FirstFragment.newInstance()
             1 -> SecondFragment.newInstance()
+            2 -> ThreeFragment.newInstance()
             else -> FirstFragment.newInstance()
         }
     }
 
-    override fun getCount(): Int = 2
+    override fun getCount(): Int = 3
 }
