@@ -1,40 +1,31 @@
 package com.dew.edward.fragmentexecise.fragments
 
 
+import android.arch.lifecycle.ViewModelProviders
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.dew.edward.fragmentexecise.R
+import com.dew.edward.fragmentexecise.VideoUriViewModel
 import kotlinx.android.synthetic.main.fragment_video_view.*
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val VIDEO_URI = "video Uri"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [VideoViewFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class VideoViewFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var videoUri: Uri? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            videoUri = it.getParcelable(VIDEO_URI)
-        }
+    private val videUriViewModel by lazy {
+        ViewModelProviders.of(activity!!).get(VideoUriViewModel::class.java)
     }
 
     override fun onStart() {
         super.onStart()
-        videoView.setVideoURI(videoUri)
-        videoView.start()
+        if (videUriViewModel.videoUri != null) {
+            videoView.setVideoURI(videUriViewModel.videoUri )
+            videoView.start()
+        }
     }
 
     override fun onPause() {
@@ -57,11 +48,7 @@ class VideoViewFragment : Fragment() {
         private val TAG = VideoIntentFragment::class.qualifiedName
         // the parameters in newInstance are for Activity to fire data to the Fragment
         @JvmStatic
-        fun newInstance(uri: Uri) =
-                VideoViewFragment().apply {
-                    arguments = Bundle().apply {
-                        putParcelable(VIDEO_URI, uri)
-                    }
-                }
+        fun newInstance() =
+                VideoViewFragment()
     }
 }

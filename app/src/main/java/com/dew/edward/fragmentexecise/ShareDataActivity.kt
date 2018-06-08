@@ -1,25 +1,14 @@
 package com.dew.edward.fragmentexecise
 
-import android.net.Uri
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import com.dew.edward.fragmentexecise.fragments.VideoIntentFragment
-import com.dew.edward.fragmentexecise.fragments.VideoViewFragment
 
-class ShareDataActivity : AppCompatActivity(), VideoIntentFragment.OnFragmentVideoUriListener {
+class ShareDataActivity : AppCompatActivity() {
 
     private val TAG = ShareDataActivity::class.qualifiedName
 
-    override fun onFragmentVideoUri(uri: Uri?) {
-        Log.e(TAG, "Video Uri: $uri")
-        if (uri != null) {
-            // this is the place where activity fire data to Fragment.
-            val videoViewFragment = VideoViewFragment.newInstance(uri)
-            replaceFragment(videoViewFragment)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
