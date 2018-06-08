@@ -31,7 +31,7 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     kapt 'com.github.bumptech.glide:compiler:4.6.1'
     implementation 'com.android.support:design:27.1.1'
-
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
 
 

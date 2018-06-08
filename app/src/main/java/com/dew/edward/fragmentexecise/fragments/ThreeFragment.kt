@@ -10,23 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.bumptech.glide.request.transition.Transition
-
 import com.dew.edward.fragmentexecise.R
 import com.dew.edward.fragmentexecise.modules.GlideApp
-import kotlinx.android.synthetic.main.fragment_second.*
 import kotlinx.android.synthetic.main.fragment_three.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ThreeFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class ThreeFragment : Fragment() {
     val image = "http://webs.dogs.net.au/arawn/images/album_6083_991.jpg"
 
