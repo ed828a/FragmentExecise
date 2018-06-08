@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.dew.edward.fragmentexecise.adapters.FragmentViewPagerAdapter
 import com.dew.edward.fragmentexecise.fragments.FirstFragment
 import com.dew.edward.fragmentexecise.fragments.SecondFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         drawerLayout.addDrawerListener(drawerToogle)
+
+        viewPager.adapter = FragmentViewPagerAdapter(supportFragmentManager)
     }
 
     //configuration of synchronization between drawer toggle and drawer layout
@@ -54,13 +57,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun selectDrawerItem(item: MenuItem){
 
-        val fragmentClass = when (item.itemId) {
-            R.id.firstFragment -> FirstFragment::class.java
-            R.id.secondFragment -> SecondFragment::class.java
-            else -> FirstFragment::class.java
+       /* val fragmentClass = */when (item.itemId) {
+            R.id.firstFragment -> viewPager.currentItem = 0
+            R.id.secondFragment -> viewPager.currentItem = 1
+            else -> viewPager.currentItem = 0
+
+
+//            R.id.firstFragment -> FirstFragment::class.java
+//            R.id.secondFragment -> SecondFragment::class.java
+//            else -> FirstFragment::class.java
         }
 
-        replaceFragment(fragmentClass.newInstance())
+//        replaceFragment(fragmentClass.newInstance())
         drawerLayout.closeDrawer(GravityCompat.START)
 
     }
@@ -69,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
 //        Log.d("Options", "onOptionsItemSelected was hit")
 //        return if (drawerToogle.onOptionsItemSelected(item)) true else super.onOptionsItemSelected(item)
-
+//
         return when(item?.itemId){
             R.id.firstFragment ->{
                 replaceFragment(FirstFragment.newInstance())
